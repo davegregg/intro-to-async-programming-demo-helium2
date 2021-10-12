@@ -20,10 +20,11 @@ setTimeout(() => console.log("Sixth in order"), 1000)
 console.log("Second in order")
 
 let mainElement = document.querySelector("main")
-let searchTextbox = document.querySelector("#search-text")
-let searchButton = document.querySelector("#search")
+let searchForm = document.querySelector("#pokemon-search")
+let searchTextbox = searchForm.querySelector("#search-text")
 
-searchButton.addEventListener("click", () => {
+searchForm.addEventListener("submit", event => {
+    event.preventDefault()
     let searchTerm = searchTextbox.value.toLowerCase()
     
     fetch(`https://pokeapi.co/api/v2/pokemon/${searchTerm}`)
